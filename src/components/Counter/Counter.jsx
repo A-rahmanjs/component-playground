@@ -7,36 +7,38 @@ import {
   Hash,
   RotateCcw,
 } from "react-feather";
+import Button from "../Button/Button";
+
 function Counter({ initialCount = 10 }) {
   const [count, setCount] = React.useState(initialCount);
   function handleSubmit(event) {
     event.preventDefault();
   }
   return (
-    <div className="wrapper">
-      <h1>{count}</h1>
+    <div className="wrapper flex justify-center items-center flex-col text-center">
+      <h1 className="text-5xl mb-10">{count}</h1>
       <form onSubmit={handleSubmit}>
-        <button onClick={() => setCount(count + 1)} title="Add 1">
-          <ChevronUp />
-        </button>
-        <button onClick={() => setCount(count + 10)} title="Add 10">
-          <ChevronsUp />
-        </button>
-        <button onClick={() => setCount(initialCount)} title="Reset">
-          <RotateCcw />
-        </button>
-        <button
+        <Button onClick={() => setCount(count + 1)} title="Add 1">
+          <ChevronUp className="w-10 h-10" />
+        </Button>
+        <Button onClick={() => setCount(count + 10)} title="Add 10">
+          <ChevronsUp className="w-10 h-10" />
+        </Button>
+        <Button onClick={() => setCount(initialCount)} title="Reset">
+          <RotateCcw className="w-10 h-10" />
+        </Button>
+        <Button
           onClick={() => setCount(Math.ceil(Math.random() * 100))}
-          title="Random Number"
+          title="Random"
         >
-          <Hash />
-        </button>
-        <button onClick={() => setCount(count - 10)} title="Deduct 10">
-          <ChevronsDown />
-        </button>
-        <button onClick={() => setCount(count - 1)} title="Deduct 1">
-          <ChevronDown />
-        </button>
+          <Hash className="w-10 h-10" />
+        </Button>
+        <Button onClick={() => setCount(count - 10)} title="Deduct 10">
+          <ChevronsDown className="w-10 h-10" />
+        </Button>
+        <Button onClick={() => setCount(count - 1)} title="Deduct 1">
+          <ChevronDown className="w-10 h-10" />
+        </Button>
       </form>
     </div>
   );

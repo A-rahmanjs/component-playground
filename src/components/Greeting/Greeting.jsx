@@ -7,7 +7,7 @@ function Greeting({ name = "Stranger" }) {
   console.log(formattedName);
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center h-[500px]">
       <div className="bg-white shadow-lg rounded-2xl p-8 text-center">
         <h1 className="text-3xl font-bold text-gray-800">
           Greetings, <span className="text-blue-600">{formattedName}</span>!
