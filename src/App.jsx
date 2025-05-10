@@ -3,12 +3,16 @@ import Counter from "./components/Counter/Counter";
 import Colorpicker from "./components/ColorPicker/ColorPicker";
 import Greeting from "./components/Greeting/Greeting";
 import Footer from "./components/Footer/Footer";
+import Clock from "./components/Clock/Clock";
+import useToggle from "./Hooks/useToggle/useToggle";
+import Button from "./components/Button/Button";
 import "./App.css";
 
 function App() {
   const [name, setName] = useState("Visitor");
   const [input, setInput] = useState("");
   const id = React.useId();
+  const [show, setShow] = useToggle(true);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -30,13 +34,17 @@ function App() {
           value={input}
           onChange={(event) => setInput(event.target.value)}
         />
-        <button className="rounded-2xl p-[0.2rem]" type="submit">
+        <button className=" p-[0.2rem] border" type="submit">
           Submit
         </button>
       </form>
       <Greeting name={name} />
       <Counter initialCount={10} />
       <Colorpicker />
+      <Button onClick={() => setShow(false)} title="Toggle On/Off">
+        Toggle Clock
+      </Button>
+      {show && <Clock />}
       <Footer />
     </>
   );

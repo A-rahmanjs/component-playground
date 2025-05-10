@@ -4,8 +4,6 @@ function Greeting({ name = "Stranger" }) {
   const formattedName =
     name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 
-  console.log(formattedName);
-
   return (
     <div className="flex items-center justify-center h-[500px]">
       <div className="bg-white shadow-lg rounded-2xl p-8 text-center">
@@ -17,4 +15,4 @@ function Greeting({ name = "Stranger" }) {
   );
 }
 
-export default Greeting;
+export default React.memo(Greeting);
