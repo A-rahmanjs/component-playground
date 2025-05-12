@@ -2,9 +2,11 @@ import React from "react";
 
 function Footer() {
   return (
-    <>
-      <p>All rights reserved 2025</p>
-    </>
+    <div className="mt-5 border-t-1">
+      <p className="text-center text-cyan-600 mt-2 text-[20px]">
+        Component Playground - Made by Abdo
+      </p>
+    </div>
   );
 }
 

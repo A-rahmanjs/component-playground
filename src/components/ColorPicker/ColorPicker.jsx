@@ -16,7 +16,7 @@ function Colorpicker() {
           type="color"
           value={color}
           onChange={(event) => setColor(event.target.value)}
-          className="h-10 w-10 rounded hover:cursor-pointer"
+          className="h-10 w-10 hover:cursor-pointer rounded-4xl"
         />
       </form>
     </div>

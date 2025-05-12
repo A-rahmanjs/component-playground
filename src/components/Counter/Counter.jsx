@@ -16,6 +16,8 @@ function Counter({ initialCount = 10 }) {
   }
   return (
     <div className="wrapper flex justify-center items-center flex-col text-center">
+      <h1 className="text-3xl text-center text-cyan-600">Counter</h1>
+
       <h1 className="text-5xl mb-10">{count}</h1>
       <form onSubmit={handleSubmit}>
         <Button onClick={() => setCount(count + 1)} title="Add 1">
