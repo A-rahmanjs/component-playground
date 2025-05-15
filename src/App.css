@@ -1,1 +1,36 @@
+.todo-list .completed {
+  flex: 1;
+  position: relative;
+  display: flex;
+  padding: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.wrapper {
+  background-color: rgb(13, 15, 18);
+}
+.todo-list .completed::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 5px;
+  background: hsl(50deg 50% 50% / 0.7);
+  border-radius: 100px;
+  transform: translateY(1.5px);
+}
 
+label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+button {
+  cursor: pointer;
+}

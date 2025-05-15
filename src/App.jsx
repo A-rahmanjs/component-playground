@@ -7,12 +7,15 @@ import Clock from "./components/Clock/Clock";
 import useToggle from "./Hooks/useToggle/useToggle";
 import Button from "./components/Button/Button";
 import JokeFetcher from "./components/JokeFetcher/JokeFetcher";
+import useLocalStorage from "./Hooks/useLocalStorage/useLocalStorage";
+import ToDoReducer from "./components/ToDoReducer/ToDoReducer";
 import "./App.css";
 
 function App() {
   const [name, setName] = useState("Visitor");
   const [input, setInput] = useState("");
-  const [show, setShow] = useToggle(true);
+  const [showClock, setShowClock] = useToggle(false);
+  const { setItem, getItem } = useLocalStorage("value");
   const id = React.useId();
 
   function handleSubmit(event) {
@@ -22,7 +25,12 @@ function App() {
     }
     setName(input);
     setInput("");
+    setItem(input);
   }
+  React.useEffect(() => {
+    setName(getItem());
+  }, [getItem, input]);
+
   return (
     <>
       <form
@@ -48,14 +56,15 @@ function App() {
       <div className="mt-10 flex justify-center items-center flex-col">
         <Button
           className="text-center"
-          onClick={() => setShow(false)}
+          onClick={() => setShowClock(false)}
           title="Toggle On/Off"
         >
           Toggle Clock
         </Button>
-        {show && <Clock />}
+        {showClock && <Clock />}
       </div>
       <JokeFetcher />
+      <ToDoReducer />
       <Footer />
     </>
   );

@@ -15,8 +15,8 @@ function Counter({ initialCount = 10 }) {
     event.preventDefault();
   }
   return (
-    <div className="wrapper flex justify-center items-center flex-col text-center">
-      <h1 className="text-3xl text-center text-cyan-600">Counter</h1>
+    <div className="flex justify-center items-center flex-col text-center">
+      <h1 className="text-4xl text-center text-cyan-600">Counter</h1>
 
       <h1 className="text-5xl mb-10">{count}</h1>
       <form onSubmit={handleSubmit}>

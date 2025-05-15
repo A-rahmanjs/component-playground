@@ -9,8 +9,8 @@ function JokeFetcher() {
   const [status, setStatus] = React.useState("idle");
   const id = React.useId();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  async function handleSubmit(event) {
+    event.preventDefault();
     setStatus("loading");
 
     const jokesENDPOINT = `${ENDPOINT}${jokesAmount}`;
@@ -26,7 +26,7 @@ function JokeFetcher() {
   }
   return (
     <div className="mt-10 mb-10 border-t-1">
-      <h1 className="text-3xl text-center text-cyan-600 p-20">Jokes Fetcher</h1>
+      <h1 className="text-4xl text-center text-cyan-600 p-20">Jokes Fetcher</h1>
 
       <form
         onSubmit={handleSubmit}
@@ -36,7 +36,7 @@ function JokeFetcher() {
           {status === "loading" ? <p>Loading..</p> : <p>Get Jokes</p>}
         </Button>
 
-        <label htmlFor={`jokesNum${id}`}>Amount of jokes: &nbsp;</label>
+        <label htmlFor={`jokesNum${id}`}>Number of jokes: &nbsp;</label>
         <input
           className="border-cyan-600 border rounded text-center p-1"
           value={jokesAmount}
@@ -57,7 +57,9 @@ function JokeFetcher() {
             {index + 1}- {joke}
           </span>
         ))}
-        {jokes && <Button onClick={() => setJokes([])}>Clear Jokes</Button>}
+        {jokes.length > 0 && (
+          <Button onClick={() => setJokes([])}>Clear Jokes</Button>
+        )}
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ function Greeting({ name = "Stranger" }) {
     <div className="flex items-center justify-center mb-10 w-full">
       <div className="bg-[#f9f9f9] shadow-lg rounded-2xl p-8 text-center w-full">
         <h1 className="text-3xl font-bold text-gray-800">
-          Greetings, <span className="text-blue-600">{formattedName}</span>!
+          Hello, <span className="text-blue-600">{formattedName}</span>!
         </h1>
       </div>
     </div>
