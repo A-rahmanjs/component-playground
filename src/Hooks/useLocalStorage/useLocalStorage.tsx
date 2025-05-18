@@ -1,5 +1,5 @@
-export default function useLocalStorage(key: string) {
-  function setItem(value: string) {
+export default function useLocalStorage(key: any) {
+  function setItem(value: any) {
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {

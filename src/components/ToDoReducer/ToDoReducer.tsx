@@ -50,17 +50,27 @@ function ToDoReducer() {
     reducer,
     [
       {
-        todo: "Example Todo",
+        todo: "Example Checked Todo",
         id: crypto.randomUUID(),
         isCompleted: true
+      },
+      {
+        todo: "Example Unchecked Todo",
+        id: crypto.randomUUID(),
+        isCompleted: false
       }
     ],
     () =>
       getItem() || [
         {
-          todo: "Example Todo",
+          todo: "Example Checked Todo",
           id: crypto.randomUUID(),
           isCompleted: true
+        },
+        {
+          todo: "Example Unchecked Todo",
+          id: crypto.randomUUID(),
+          isCompleted: false
         }
       ]
   );

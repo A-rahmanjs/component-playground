@@ -3,7 +3,7 @@ import useLocalStorage from "../../Hooks/useLocalStorage/useLocalStorage";
 
 function ColorPicker() {
   const { getItem, setItem } = useLocalStorage("color");
-  const initialColor = getItem() || "#4A6DA5";
+  const initialColor = getItem() || "#1D3CD7";
 
   const [color, setColor] = React.useState(initialColor);
 

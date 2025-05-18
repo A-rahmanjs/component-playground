@@ -1,7 +1,7 @@
 import React, { useState, useId, FormEvent, ChangeEvent } from "react";
 import Button from "../Button/Button";
 
-const ENDPOINT = "https://v2.jokeapi.dev/joke/Any?type=single&amount=";
+const ENDPOINT = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,sexist,explicit&type=single&amount=";
 
 type Joke = {
   joke: string;
@@ -46,7 +46,7 @@ function JokeFetcher() {
           {status === "Loading" ? <p>Loading..</p> : <p>Get Jokes</p>}
         </Button>
 
-        <label htmlFor={`jokesNum${id}`}>Amount of jokes: &nbsp;</label>
+        <label htmlFor={`jokesNum${id}`}>Number of jokes: &nbsp;</label>
         <input
           className="border-cyan-600 border rounded text-center p-1"
           value={jokesAmount}
@@ -64,10 +64,11 @@ function JokeFetcher() {
       {status === "Fail" && (
         <p className="text-red-600 uppercase text-3xl">Error Fetching Jokes</p>
       )}
-      <div className="flex flex-col justify-center align-center text-center bg-[#f9f9f9] shadow-lg rounded-2xl">
+      <div className="flex flex-col p-20 bg-[#f9f9f9] shadow-lg rounded-2xl">
         {jokes.map(({ joke, id }, index) => (
-          <span key={id}>
-            {index + 1}- {joke}
+          <span key={id} className="text-2xl text-left p-1">
+            <span className="text-blue-700">{index + 1}</span>
+            - {joke}
           </span>
         ))}
       </div>
