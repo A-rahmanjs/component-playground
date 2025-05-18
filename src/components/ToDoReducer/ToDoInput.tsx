@@ -1,6 +1,8 @@
 import React from "react";
-
-function ToDoInput({ handleAddTodo }) {
+interface Todo  {
+  handleAddTodo: (text: string) => void
+}
+function ToDoInput({ handleAddTodo }: Todo) {
   const [input, setInput] = React.useState("");
   const id = React.useId();
 
@@ -8,13 +10,13 @@ function ToDoInput({ handleAddTodo }) {
     <div className="bg-[hsl(210deg_15%_15%)] rounded">
       <form
         className="p-[16px]"
-        onSubmit={(e) => {
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
           e.preventDefault();
           handleAddTodo(input);
           setInput("");
         }}
       >
-        <label htmlFor={`${id}-form`}>Add Todos</label>
+        <label htmlFor={`${id}-form`} className="pb-[16px]">Add Todos</label>
         <div className="flex flex-wrap gap-[16px]">
           <input
             className="h-10 text-lg flex-[4] min-w-[220px] border-0 border-b-2 border-white rounded-sm bg-transparent outline-offset-4"
@@ -22,7 +24,7 @@ function ToDoInput({ handleAddTodo }) {
             type="text"
             value={input}
             placeholder="Type something... e.g., cook breakfast, take a shower, etc."
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
           />
           <button
             type="submit"

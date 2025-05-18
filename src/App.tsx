@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Counter from "./components/Counter/Counter";
-import Colorpicker from "./components/ColorPicker/ColorPicker";
+import ColorPicker from "./components/ColorPicker/ColorPicker";
 import Greeting from "./components/Greeting/Greeting";
 import Footer from "./components/Footer/Footer";
 import Clock from "./components/Clock/Clock";
@@ -12,13 +12,13 @@ import ToDoReducer from "./components/ToDoReducer/ToDoReducer";
 import "./App.css";
 
 function App() {
-  const [name, setName] = useState("Visitor");
-  const [input, setInput] = useState("");
+  const [name, setName] = useState<string>("Visitor");
+  const [input, setInput] = useState<string>("");
   const [showClock, setShowClock] = useToggle(false);
   const { setItem, getItem } = useLocalStorage("value");
   const id = React.useId();
 
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (input.trim() === "") {
       return;
@@ -35,28 +35,27 @@ function App() {
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex justify-center items-center gap-0.5 w-full border-b-1 border-black border-1 p-2"
+        className="flex flex-wrap justify-center items-center gap-3 w-full max-w-3xl mx-auto py-5 px-6 mb-6 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 rounded-xl shadow-md border border-blue-200 dark:border-blue-800"
       >
-        <label htmlFor={id}>Name: </label>
+        <label htmlFor={id} className="text-gray-800 font-medium text-lg">Name: </label>
         <input
           id={id}
-          className="bg-white rounded-2xl mr-1 text-black p-[0.2rem] border-2 border-solid border-blue-600"
-          placeholder="Enter name"
+          className="bg-gradient-to-r from-blue-500/10 to-indigo-500/10  rounded-lg px-4 py-2 text-gray-800  border-2 border-blue-500 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-200 outline-none transition-all duration-200 shadow-sm"
+          placeholder="Enter your name"
           type="text"
           value={input}
-          onChange={(event) => setInput(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setInput(event.target.value)}
         />
-        <Button className=" p-[0.2rem] border" type="submit">
+        <Button type="submit">
           Submit
         </Button>
       </form>
       <Greeting name={name} />
       <Counter initialCount={10} />
-      <Colorpicker />
+      <ColorPicker />
       <div className="mt-10 flex justify-center items-center flex-col">
         <Button
-          className="text-center"
-          onClick={() => setShowClock(false)}
+          onClick={setShowClock}
           title="Toggle On/Off"
         >
           Toggle Clock

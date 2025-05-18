@@ -9,9 +9,10 @@ import {
 } from "react-feather";
 import Button from "../Button/Button";
 
+
 function Counter({ initialCount = 10 }) {
   const [count, setCount] = React.useState(initialCount);
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
   return (
