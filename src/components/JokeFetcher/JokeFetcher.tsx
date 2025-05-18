@@ -19,13 +19,23 @@ function JokeFetcher() {
     e.preventDefault();
     setStatus("Loading");
 
-    const jokesENDPOINT = `${ENDPOINT}${jokesAmount}`;
-    const response = await fetch(jokesENDPOINT);
+    let jokesENDPOINT = `${ENDPOINT}${jokesAmount}`;
+    
+    let jokesENDPOINTsingle = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,sexist,explicit&type=single"
+    
+    const response = await fetch(jokesAmount == 1 ? jokesENDPOINTsingle : jokesENDPOINT);
     const json = await response.json();
 
     if (!json.error) {
       setStatus("Ready");
-      setJokes(json.jokes);
+      if (jokesAmount === 1) {
+        setJokes([{
+          joke: json.joke,
+          id: json.id
+        }])
+      } else {
+        setJokes(json.jokes)
+      }
     } else {
       setStatus("Fail");
     }
