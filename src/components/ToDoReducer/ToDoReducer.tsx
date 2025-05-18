@@ -95,7 +95,7 @@ function ToDoReducer() {
   return (
     <>
       <h1 className="text-4xl text-center text-cyan-600 p-10">To-do List</h1>
-      <div className="wrapper h-[100%] flex flex-col gap-[32px] text-white">
+      <div className="relative wrapper min-h-[100vh] flex flex-col gap-[32px] text-white">
         <ol className="todo-list flex flex-col gap-2 p-0 list-none">
           {todos.map(({ todo, id, isCompleted }) => (
             <li

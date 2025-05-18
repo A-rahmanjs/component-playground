@@ -7,7 +7,7 @@ function ToDoInput({ handleAddTodo }: Todo) {
   const id = React.useId();
 
   return (
-    <div className="bg-[hsl(210deg_15%_15%)] rounded">
+    <div className="bg-[hsl(210deg_15%_15%)] rounded absolute w-[100%] bottom-[-50px]">
       <form
         className="p-[16px]"
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => {

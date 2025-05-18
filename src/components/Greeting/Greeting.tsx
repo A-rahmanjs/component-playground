@@ -10,7 +10,7 @@ function Greeting({ name = "Stranger" }) {
         <h1 className="text-4xl font-extrabold text-white mb-2 drop-shadow-md">
           Hello, <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-yellow-200 animate-pulse">{formattedName}</span>!
         </h1>
-        <p className="text-blue-100 text-lg mt-2 font-light">Welcome to our component playground</p>
+        <p className="text-blue-100 text-lg mt-2 font-light">Welcome to my component playground</p>
       </div>
     </div>
   );
